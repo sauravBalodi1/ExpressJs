@@ -8,7 +8,8 @@ var app = express()
 // DELETE
 
 app.get("/",(req,res)=>{
-    res.send("Hello world request send through express")
+  res.send("Hello world request send through express")
+
 })
 app.post('/', function (req, res) {
     res.send('Got a POST request')
