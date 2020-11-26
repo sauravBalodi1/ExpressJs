@@ -5,12 +5,11 @@ const port=8
 const hbs=require('hbs')
 //const staticPath=path.join(__dirname,"../public")
 const staticPartial=path.join(__dirname,"../templates/views")
-const Partial=path.join(__dirname,"../templates/views/partials")
+const Partial=path.join(__dirname,"../templates/partials")
 
 console.log(path.join(__dirname,"../templates"))
 //to set view engine
 app.set('views',staticPartial)
-app.set('view engine','hbs')
 
 hbs.registerPartials(Partial)
 
@@ -19,7 +18,8 @@ hbs.registerPartials(Partial)
 
 //builtIn middleware
 
-app.get("",(req,res)=>{
-    res.render("index")
+app.get("/",(req,res)=>{
+    res.render("indexHbs")
 })
+
 app.listen(port)

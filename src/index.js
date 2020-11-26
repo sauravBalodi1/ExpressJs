@@ -10,7 +10,7 @@ const port=4;
 const p=require('partials')
 const hbs=require('hbs')
 //to set the view engine
-const partial=path.join(__dirname,"../templates/views/partials")
+const partial=path.join(__dirname,"../templates/views")
 
 
 
@@ -18,14 +18,20 @@ const partial=path.join(__dirname,"../templates/views/partials")
 
 app.set('view engine','hbs')
 app.set('views',path.join(__dirname,"../templates/views"))
-hbs.registerPartials(partial)
-app.get("",(req,res)=>{//braces khali rehne do,koi dikkt nai
+//hbs.registerPartials(partial)
+app.get("/",(req,res)=>{//braces khali rehne do,koi dikkt nai
   res.render("index")
   })
+  app.get("*",(req,res)=>{
+    res.render("404",{notfound:"404 error"})
+    })//this is basically operator
+
+
 
 app.post('/', function (req, res) {
     res.send('Got a POST request')
   })
+  
   app.put('/user', function (req, res) {
     res.send('Got a PUT request at /user')
   })
